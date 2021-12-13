@@ -1,0 +1,19 @@
+{
+    "name": "portifolio/gusin",
+    "description": "portifolio criado por CoderGustavo com objetivo de mostrar seus projetos e conhecimentos",
+    "require": {
+        "twbs/bootstrap": "5.0.2",
+        "components/jquery": "^3.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "Portifolio\\Gusin\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Gustavo Ornaghi Antunes",
+            "email": "gustavoornaghiantunes@gmail.com"
+        }
+    ]
+}
