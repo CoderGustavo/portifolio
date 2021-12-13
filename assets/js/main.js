@@ -4,7 +4,7 @@ $(window).on('load', function(){
     if(theme == "dark"){
         $("#theme_switch").prop("checked", true);
         $("body").addClass("dark");
-    }else{
+    }else if(theme == "light"){
         $("#theme_switch").prop("checked", false);
         $("body").addClass("light");
     }
