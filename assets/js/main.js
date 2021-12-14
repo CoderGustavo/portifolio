@@ -106,9 +106,11 @@ function mudartexto(elemento){
 
 digitar(texto_digitacao);
 
+const menu_int = document.querySelectorAll("a[href^='#']");
+const sections = document.querySelectorAll("div[id]");
 const itens_page = document.querySelectorAll("[data-animation]");
 
-const anime_scroll = () => {
+const onScroll = () => {
     const top = window.pageYOffset + window.innerHeight*0.85;
     itens_page.forEach(element =>{
         if(top > element.offsetTop){
@@ -117,9 +119,31 @@ const anime_scroll = () => {
             element.classList.remove("animate");
         }
     });
+    sections.forEach(element =>{
+        console.log(element.offsetTop)
+        if(top > element.offsetTop){
+            $("a[href='#"+$(element).attr("id")+"']").addClass("activate");
+            $("a[href='#"+$(element).attr("id")+"']").siblings().removeClass("activate");
+        }else{
+            $("a[href='#"+$(element).attr("id")+"']").removeClass("activate")
+        }
+    })
 }
-anime_scroll();
+onScroll();
+
+menu_int.forEach(element =>{
+    $(element).on('click', (e) => {
+        e.preventDefault();
+        let section = document.querySelector($(element).attr("href"));
+        $(element).addClass("activate");
+        $(element).siblings().removeClass("activate");
+        $("html, body").animate({
+            scrollTop: section.offsetTop
+        }, 500, 'swing')
+    });
+});
+
 
 $(window).on("scroll", ()=>{
-        anime_scroll();
+    onScroll();
 })

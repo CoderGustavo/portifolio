@@ -16,8 +16,10 @@
     color: var(--light);
     background-color: var(--primary);
 }
-body{
+html, body{
     scroll-behavior: smooth;
+    user-select: none;
+    cursor: url(../img/cursor.png), auto;
 }
 body.dark{
     background-color: #252525;
@@ -48,9 +50,6 @@ body.light .subtitle{
 [data-animation].animate{
     opacity: 1;
     transform: translate3d(0, 0, 0);
-}
-.hero{
-    cursor:url(../img/cursor.png), auto;;
 }
 .text-primarycolor{
     color: var(--primary);
@@ -156,11 +155,45 @@ body.light .subtitle{
     }
 }
 .hero-content{
-    z-index: 2;
     font-family: 'Nunito', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 50%;
 }
 .hero-content h1{
     font-size: 35pt;
+    z-index: 2;
+}
+.hero-content h3{
+    z-index: 2;
+}
+.hero-content .social-media a{
+    text-decoration: none;
+}
+.hero-content .social-media{
+    display: flex;
+    z-index: 2;
+}
+.hero-content .social-media a div{
+    color: var(--light);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #2222227a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem;
+    font-size: 15pt;
+    color: var(--light);
+    transition: 1s;
+}
+.hero-content .social-media a:hover div{
+    transition: 0s;
+    color: var(--primary);
+    transform: translateY(-10%);
+    box-shadow: 0 0 20px var(--primary);
 }
 .background-icons{
     position: absolute;
@@ -245,6 +278,13 @@ body.light .subtitle{
     background-color: rgba(0, 0, 0, 0);
     border: 0;
 }
+.card:hover .gradient-background-glass, .card:hover .gradient-background-glass-2{
+    transform: rotate(0);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
 .card-content{
     border-radius: 20px;
     background-color: #2222223b;
@@ -267,14 +307,15 @@ body.light .subtitle{
 }
 .gradient-background-glass, .gradient-background-glass-2{
     position: absolute;
-    width: 60%;
-    height: 110%;
-    top: -5%;
-    left: 0;
+    width: 40%;
+    height: 120%;
+    top: -10%;
+    left: 30%;
     background-image: linear-gradient(var(--primary), var(--dark));
     border-radius: 20px;
     z-index: -1;
     transform: rotate(-15deg);
+    transition: 1s;
 }
 .btn-gradient-primarycolor{
     border: 0;
@@ -339,5 +380,25 @@ body.light .subtitle{
     }
     #services{
         overflow: hidden;
+    }
+    .subtitle{
+        font-size: 25pt;
+    }
+    .subtitle:before, .subtitle:after{
+        width: 20px;
+        margin: 7pt 1rem;
+    }
+    .hero-content{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .hero-content h1{
+        text-align: center;
+        font-size: 30pt;
+    }
+    .hero-content h3{
+        text-align: center;
     }
 }
