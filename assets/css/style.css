@@ -306,12 +306,9 @@ body.light .subtitle{
 .icon-service{
     text-align: center;
 }
-#services{
-    overflow-x: hidden;
-}
 
 
-@media (max-width: 700px) {
+@media (max-width: 990px) {
     .menu-lateral a:not(.btn-toggle){
         display: none;
     }
@@ -339,5 +336,8 @@ body.light .subtitle{
     .gradient-background-glass-2{
         left: 40%;
         transform: rotate(15deg);
+    }
+    #services{
+        overflow: hidden;
     }
 }
